@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SHEROES · Storico allenamenti</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">SHE<span>ROES</span></div>
+  <a class="nav-link" href="index.html">← Allenamento</a>
+</div>
+
+<div class="container">
+  <div class="hero" style="padding-bottom:0;">
+    <div class="eyebrow">Il tuo percorso</div>
+    <h1>Storico</h1>
+    <p>Ogni sessione salvata resta memorizzata in questo browser, così puoi vedere i tuoi progressi nel tempo.</p>
+  </div>
+
+  <div class="stats-grid" id="stats-grid">
+    <div class="stat-card"><div class="num" id="stat-total">0</div><div class="lbl">Sessioni totali</div></div>
+    <div class="stat-card"><div class="num" id="stat-minutes">0</div><div class="lbl">Minuti totali</div></div>
+    <div class="stat-card"><div class="num" id="stat-week">0</div><div class="lbl">Ultimi 7 giorni</div></div>
+    <div class="stat-card"><div class="num" id="stat-streak">0</div><div class="lbl">Giorni di fila</div></div>
+  </div>
+
+  <div class="chart-wrap" id="chart-wrap" style="display:none;">
+    <h3>Ultime 12 sessioni (minuti)</h3>
+    <canvas id="history-chart"></canvas>
+  </div>
+
+  <div id="list-area"></div>
+
+  <div style="text-align:center; margin-bottom:40px;">
+    <button class="cta-secondary" id="btn-clear-all">Cancella tutto lo storico</button>
+  </div>
+</div>
+
+<footer class="foot">SHEROES · Storico salvato localmente su questo dispositivo/browser.</footer>
+
+<script src="js/data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/history.js"></script>
+</body>
+</html>

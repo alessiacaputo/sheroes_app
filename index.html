@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>SHEROES · Allenamento a casa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">SHE<span>ROES</span></div>
+  <a class="nav-link" href="history.html">Storico ↗</a>
+</div>
+
+<div class="container">
+
+  <!-- ===================== SCREEN: SELEZIONE ===================== -->
+  <section id="screen-select">
+    <div class="hero">
+      <div class="eyebrow">Fase 1 · Allenamento a casa</div>
+      <h1>Pronta ad allenarti?</h1>
+      <p>Scegli il giorno di oggi. Ti guiderò passo passo tra riscaldamento ed esercizi, con cronometro automatico e un promemoria visivo per ogni movimento — senza dover cambiare app.</p>
+    </div>
+
+    <div class="day-cards" id="day-cards">
+      <button class="day-card" data-day="day1">
+        <div class="day-title">Giorno 1</div>
+        <div class="day-meta">Core · Pogo Jump · Zombie Squat · Push Up</div>
+        <ul>
+          <li>A) Core Circuit</li>
+          <li>B) Pogo Jump + Bulgarian Squat Iso</li>
+          <li>C) Zombie Squat + Inchworm</li>
+          <li>D) Test Push Up + 3 Touch Hamstring</li>
+          <li>E) Biceps + Copenhagen</li>
+        </ul>
+      </button>
+      <button class="day-card" data-day="day2">
+        <div class="day-title">Giorno 2</div>
+        <div class="day-meta">Core · Snap Down · RDL · Bulgarian Squat</div>
+        <ul>
+          <li>A) Core Circuit</li>
+          <li>B) Snap Down + Iso Hamstring</li>
+          <li>C) RDL + Static Lunges</li>
+          <li>D) Bulgarian Squat + Row</li>
+          <li>E) Military Press + Calf Raise</li>
+        </ul>
+      </button>
+    </div>
+
+    <button class="cta-primary" id="btn-start" disabled>Inizia Allenamento</button>
+    <p style="color:var(--muted); font-size:12px; text-align:center; margin-top:14px;">
+      Il riscaldamento è incluso automaticamente all'inizio di ogni sessione.
+    </p>
+  </section>
+
+  <!-- ===================== SCREEN: PLAYER ===================== -->
+  <section id="screen-player">
+    <div class="progress-bar"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    <div class="step-meta">
+      <span id="step-block-label">—</span>
+      <span id="step-count">0 / 0</span>
+    </div>
+
+    <div class="exercise-header">
+      <h2 id="exercise-name">—<span class="side-tag" id="side-tag" style="display:none;"></span></h2>
+    </div>
+
+    <div class="stage">
+      <div id="figure-canvas"></div>
+    </div>
+
+    <!-- Timer per esercizi a tempo / recupero -->
+    <div class="timer-wrap" id="timer-wrap" style="display:none;">
+      <div class="timer-big" id="timer-value">00:00</div>
+      <div class="timer-label" id="timer-label">Lavoro</div>
+    </div>
+
+    <!-- Target per esercizi a ripetizioni -->
+    <div id="reps-wrap" style="display:none;">
+      <div class="reps-target" id="reps-value">8 rep</div>
+      <div class="reps-sub" id="reps-sub">Tocca "Fatto" quando hai finito la serie</div>
+    </div>
+
+    <!-- Input per test AMRAP -->
+    <div id="amrap-wrap" style="display:none;">
+      <div class="reps-sub">Fai più push up possibili, poi inserisci il numero:</div>
+      <div class="amrap-input-row">
+        <input type="number" min="0" id="amrap-input" placeholder="0" />
+        <button class="icon-btn primary" id="btn-amrap-confirm" style="flex:1;">Conferma</button>
+      </div>
+    </div>
+
+    <div class="cues-box">
+      <h3>Attenzione a</h3>
+      <ul id="cues-list"></ul>
+      <div class="block-note" id="block-note" style="display:none;"></div>
+    </div>
+
+    <div class="controls-row" id="main-controls">
+      <button class="icon-btn ghost" id="btn-prev">← Indietro</button>
+      <button class="icon-btn" id="btn-pause">Pausa</button>
+      <button class="icon-btn primary" id="btn-next">Fatto ✓</button>
+    </div>
+    <div class="controls-row" id="rest-extra" style="display:none;">
+      <button class="icon-btn" id="btn-add15">+15"</button>
+      <button class="icon-btn" id="btn-skip-rest">Salta recupero</button>
+    </div>
+
+    <div class="finish-row"><a href="#" id="btn-abort">Interrompi allenamento</a></div>
+  </section>
+
+  <!-- ===================== SCREEN: RIEPILOGO ===================== -->
+  <section id="screen-summary">
+    <div class="big-check">🎉</div>
+    <h1>Allenamento completato!</h1>
+    <div class="summary-stats">
+      <div class="summary-stat"><div class="num" id="summary-duration">0'</div><div class="lbl">Durata</div></div>
+      <div class="summary-stat"><div class="num" id="summary-day">—</div><div class="lbl">Giorno</div></div>
+    </div>
+    <div class="summary-note">
+      <textarea id="summary-note" placeholder="Nota sulla sessione (facoltativa): come ti sei sentita, carichi usati, ecc."></textarea>
+    </div>
+    <div class="summary-actions">
+      <button class="cta-primary" id="btn-save-session" style="width:auto; padding:16px 30px;">Salva nello storico</button>
+      <button class="cta-secondary" id="btn-new-session">Torna alla selezione</button>
+    </div>
+  </section>
+
+</div>
+
+<footer class="foot">SHEROES · Allenamento a casa · Fase 1 — le animazioni 3D sono schematiche, segui sempre le indicazioni scritte del tuo allenatore.</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r160/three.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/figure.js"></script>
+<script src="js/player.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
