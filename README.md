@@ -56,17 +56,22 @@ Tutta la struttura dell'allenamento è in `js/data.js`:
   singoli esercizi, test AMRAP) con tempi/ripetizioni/serie.
 
 Per aggiungere un nuovo esercizio: aggiungilo a `EXERCISES` scegliendo uno
-degli archetipi già presenti in `js/figure.js` (`jump`, `plank_flow`,
-`hinge`, `squat`, `lunge`, `core_twist`, `pushup`, `band_curl`, `band_row`,
-`band_press`, `side_hold`, `calf_raise`) oppure creane uno nuovo definendo
-una nuova funzione posa in `POSES`.
+degli archetipi già presenti in `js/figure.js` dentro `ARCHETYPES` (es.
+`squat`, `hinge`, `lunge`, `jump_jacks`, `plank_static`, `band_curl`, ecc.)
+oppure creane uno nuovo definendo due pose chiave (`a` e `b`, in gradi) e una
+didascalia — il motore interpola automaticamente il movimento.
 
 ## Limiti da tenere presente
 
-- **L'omino 3D è schematico**, non un modello anatomico realistico: mostra
-  il "pattern" del movimento (es. hinge, squat, plank) riutilizzato su più
-  esercizi simili, per darti un riferimento visivo veloce. Le indicazioni
-  scritte ("Attenzione a…") restano la fonte principale — seguile sempre.
+- **Il disegno dell'omino è uno schema semplificato** (pittogramma 2D,
+  simile a quelli delle app fitness), non una dimostrazione biomeccanica
+  perfetta: serve per capire a colpo d'occhio la forma del movimento
+  (scendere/salire, avanti/indietro, quale lato), non per replicare la
+  tecnica esatta esercizio per esercizio. Le indicazioni scritte
+  ("Attenzione a…") restano la fonte principale — seguile sempre.
+- Sotto le indicazioni c'è anche un link "Cerca un video di riferimento"
+  che apre una ricerca YouTube per quell'esercizio, utile se vuoi vedere
+  un'esecuzione reale.
 - L'app **non conta le ripetizioni** in automatico (richiederebbe la
   fotocamera e un modello di visione artificiale): per gli esercizi a
   ripetizioni mostra il target e tu tocchi "Fatto ✓" quando hai finito la
