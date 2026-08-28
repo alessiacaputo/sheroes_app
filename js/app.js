@@ -141,7 +141,17 @@
   function startWorkout(dayKey) {
     showScreen("player");
     if (!figure) {
-      figure = new StickFigure(document.getElementById("figure-canvas"));
+      try {
+        figure = new StickFigure(document.getElementById("figure-canvas"));
+      } catch (e) {
+        console.error("Omino 3D non disponibile:", e);
+        figure = null;
+        const stage = document.getElementById("figure-canvas");
+        if (stage) stage.parentElement.insertAdjacentHTML(
+          "afterbegin",
+          '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;text-align:center;padding:20px;">Anteprima 3D non disponibile in questo browser — segui le indicazioni scritte qui sotto.</div>'
+        );
+      }
     }
     if (!player) {
       player = new WorkoutPlayer({
